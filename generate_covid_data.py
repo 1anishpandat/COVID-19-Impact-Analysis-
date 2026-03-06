@@ -183,16 +183,7 @@ print(f"   Records: {len(df):,}")
 print(f"   Date Range: {df['date'].min().date()} to {df['date'].max().date()}")
 print(f"   Industries: {df['industry'].nunique()}")
 print(f"   Time Period: {(df['date'].max() - df['date'].min()).days // 30} months")
-print(f"\n📈 Revenue by Industry (Pre-COVID vs COVID-Peak):")
 
-for industry in industries.keys():
-    pre_covid = df[(df['industry']==industry) & (df['period']=='Pre-COVID')]['revenue_million_usd'].mean()
-    covid_peak = df[(df['industry']==industry) & (df['period']=='COVID-Peak')]['revenue_million_usd'].mean()
-    if pd.notna(pre_covid) and pd.notna(covid_peak):
-        change_pct = ((covid_peak - pre_covid) / pre_covid) * 100
-        print(f"   {industry:20} {change_pct:+7.1f}%")
-
-print(f"\n💾 Saved to: data/covid_economic_impact.csv")
 print(f"\n✅ Dataset is ready!")
 print(f"   Next step: Open COVID19_Economic_Analysis.ipynb and run it")
 print("=" * 70)
