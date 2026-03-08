@@ -148,7 +148,20 @@ for industry_name, params in industries.items():
         # Unemployment rate (inverse of employment)
         unemployment_rate = max(3.5, 15 - (employment / 1500) * 10)
         
-        
+        data.append({
+            'date': month_date,
+            'year': month_date.year,
+            'month': month_date.month,
+            'quarter': f'Q{(month_date.month-1)//3 + 1}',
+            'industry': industry_name,
+            'revenue_million_usd': round(revenue, 2),
+            'employment_thousands': round(employment, 1),
+            'consumer_spending_million': round(consumer_spending, 2),
+            'unemployment_rate_pct': round(unemployment_rate, 2),
+            'covid_cases': int(covid_cases) if months_since_2020 >= 0 else 0,
+            'period': period
+        })
+
 # Create DataFrame
 df = pd.DataFrame(data)
 
