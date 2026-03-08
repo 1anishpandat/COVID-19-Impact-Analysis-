@@ -192,4 +192,7 @@ for industry in industries.keys():
         change_pct = ((covid_peak - pre_covid) / pre_covid) * 100
         print(f"   {industry:20} {change_pct:+7.1f}%")
 
-
+print(f"\n💾 Saved to: data/covid_economic_impact.csv")
+print(f"\n✅ Dataset is ready!")
+print(f"   Next step: Open COVID19_Economic_Analysis.ipynb and run it")
+print("=" * 70)
